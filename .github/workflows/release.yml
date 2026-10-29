@@ -35,3 +35,6 @@ jobs:
           sys.exit(f"Unknown classifiers: {bad}" if bad else 0)'
       - run: uv build
       - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
+        with:
+          # A release that is already on PyPI (or a re-run) succeeds without uploading.
+          skip-existing: true
