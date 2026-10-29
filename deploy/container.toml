@@ -1,0 +1,23 @@
+# Small Kurdish runtime; optional corpora and extra fonts are read-only mounts.
+# Relative asset paths remain anchored to /app/config.toml.
+[data]
+raw = "/corpora"
+processed = "/data/processed"
+normalization = "NFC"
+max_chars = 100
+deduplicate = true
+write_jsonl = false # SQLite is the canonical index; avoid duplicating corpus text
+
+[fonts]
+directories = ["fonts", "/extra-fonts"]
+coverage = "strict"
+cache_size = 4
+coverage_cache_size = 64
+
+[generation]
+output = "/data/datasets/default"
+samples = 1000
+workers = 1
+max_width = 2048
+max_height = 256
+max_pixels = 524288

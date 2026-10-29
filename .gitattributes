@@ -1,0 +1,22 @@
+# Keep source code portable across platforms.
+* text=auto eol=lf
+
+# Preserve exact raw-data and downloaded-asset bytes for provenance/checksums.
+/data/raw/** -text !eol
+/fonts/open/** -text !eol
+
+# Font and image files must never be merged or diffed as text.
+*.ttf binary
+*.TTF binary
+*.otf binary
+*.OTF binary
+*.ttc binary
+*.otc binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.tif binary
+*.tiff binary
+*.bz2 binary
+*.zip binary

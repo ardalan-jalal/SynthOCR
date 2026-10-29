@@ -1,0 +1,31 @@
+name: Checks
+# One short Linux job per merge into main keeps Actions minutes low.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+  workflow_dispatch:
+# A newer merge replaces a run that is still in progress.
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: "0.13.5"
+      - name: Linux shaping dependency
+        run: sudo apt-get update && sudo apt-get install -y libfribidi0
+      - run: uv sync --locked --extra web --group dev
+      - run: uv run --no-sync ruff check .
+      - run: uv run --no-sync ruff format --check .
+      - run: node --test tests/ui.test.cjs
+      - run: uv run --no-sync pytest -q

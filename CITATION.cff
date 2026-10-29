@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use SynthOCR or a dataset made with it, please cite it as below."
+title: "SynthOCR: OCR training data for Kurdish"
+abstract: >-
+  SynthOCR renders text images with exact labels for training and testing
+  optical character recognition, built for Sorani and Kurmanji Kurdish with
+  Arabic and English.
+type: software
+authors:
+  - family-names: Jalal
+    given-names: Ardalan
+version: 2.1.0
+license:
+  - MIT
+  - Apache-2.0
+repository-code: "https://github.com/ardalan-jalal/SynthOCR"
+keywords:
+  - OCR
+  - synthetic data
+  - Kurdish
+  - Sorani
+  - Kurmanji

@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#101116" />
+        <title>SynthOCR — OCR dataset generator</title>
+        <link rel="icon" href="/assets/brand.svg" type="image/svg+xml" />
+        <script src="/assets/theme.js"></script>
+        <link rel="stylesheet" href="/assets/app.css" />
+        <script src="/assets/app.js" defer></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#generation-form">Skip to settings</a>
+        <header class="app-header">
+            <a class="brand" href="/" aria-label="SynthOCR home">
+                <img
+                    class="brand-mark"
+                    src="/assets/brand.svg"
+                    width="32"
+                    height="32"
+                    alt=""
+                />
+                <span>Synth<span class="brand-light">OCR</span></span>
+            </a>
+            <div class="header-meta">
+                <span class="header-version" id="app-version"></span>
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Switch to light mode"
+                >
+                    <span data-icon="sun" aria-hidden="true"></span
+                    ><span id="theme-label">Light mode</span>
+                </button>
+            </div>
+        </header>
+        <main class="app-main">
+            <section class="page-heading" aria-labelledby="page-title">
+                <h1 id="page-title">Make OCR training data</h1>
+                <p>
+                    Choose your text and a look. You get text images, each with
+                    its exact text label (ground truth), saved to a folder on
+                    your computer.
+                </p>
+            </section>
+            <form id="generation-form" class="steps" novalidate>
+                <section class="card" aria-labelledby="text-title">
+                    <h2 id="text-title">
+                        <span class="step-number">1</span>Text
+                    </h2>
+                    <fieldset class="field">
+                        <legend class="field-label">Languages</legend>
+                        <div class="choice-grid four">
+                            <label class="choice">
+                                <input
+                                    type="checkbox"
+                                    name="language"
+                                    value="sorani"
+                                    aria-describedby="language-help"
+                                    checked
+                                />
+                                <span class="choice-card"
+                                    ><strong>Sorani</strong
+                                    ><span lang="ckb" dir="rtl" class="native"
+                                        >کوردیی ناوەندی</span
+                                    ></span
+                                >
+                            </label>
+                            <label class="choice">
+                                <input
+                                    type="checkbox"
+                                    name="language"
+                                    value="kurmanji"
+                                    aria-describedby="language-help"
+                                />
+                                <span class="choice-card"
+                                    ><strong>Kurmanji</strong
+                                    ><span lang="kmr" class="native"
+                                        >Kurmancî</span
+                                    ></span
+                                >
+                            </label>
+                            <label class="choice">
+                                <input
+                                    type="checkbox"
+                                    name="language"
+                                    value="ar"
+                                    aria-describedby="language-help"
+                                />
+                                <span class="choice-card"
+                                    ><strong>Arabic</strong
+                                    ><span lang="ar" dir="rtl" class="native"
+                                        >العربية</span
+                                    ></span
+                                >
+                            </label>
+                            <label class="choice">
+                                <input
+                                    type="checkbox"
+                                    name="language"
+                                    value="en"
+                                    aria-describedby="language-help"
+                                />
+                                <span class="choice-card"
+                                    ><strong>English</strong></span
+                                >
+                            </label>
+                        </div>
+                        <p
+                            id="language-help"
+                            class="field-error"
+                            role="status"
+                            aria-live="polite"
+                            hidden
+                        ></p>
+                    </fieldset>
+                    <fieldset class="field">
+                        <legend class="field-label">
+                            Where the text comes from
+                        </legend>
+                        <div class="choice-grid two">
+                            <label class="choice">
+                                <input
+                                    type="radio"
+                                    name="source"
+                                    value="corpus"
+                                    checked
+                                />
+                                <span class="choice-card"
+                                    ><strong>Built-in text</strong
+                                    ><span
+                                        >Real sentences, words and numbers</span
+                                    ></span
+                                >
+                            </label>
+                            <label class="choice">
+                                <input
+                                    type="radio"
+                                    name="source"
+                                    value="upload"
+                                />
+                                <span class="choice-card"
+                                    ><strong>My file</strong
+                                    ><span>Upload TXT, CSV or JSONL</span></span
+                                >
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div id="upload-field" class="field" hidden>
+                        <label class="field-label" for="corpus-file"
+                            >Text file</label
+                        >
+                        <input
+                            id="corpus-file"
+                            type="file"
+                            accept=".txt,.jsonl,.csv,text/plain,application/jsonl,text/csv"
+                            aria-describedby="upload-help upload-status"
+                        />
+                        <fieldset
+                            class="field file-language"
+                            id="file-language-field"
+                            hidden
+                        >
+                            <legend class="field-label">
+                                Language of this file
+                            </legend>
+                            <p class="field-help">
+                                A TXT file has no language column, so every line
+                                is labelled with the language you choose here.
+                            </p>
+                            <div
+                                class="chip-list"
+                                id="file-language-options"
+                            ></div>
+                        </fieldset>
+                        <p class="field-help" id="upload-help">
+                            UTF-8 text. TXT: one text per line. CSV or JSONL: a
+                            <code>text</code> column, and optionally a
+                            <code>language</code> column.
+                        </p>
+                        <p
+                            id="upload-status"
+                            class="field-status"
+                            role="status"
+                            aria-live="polite"
+                            hidden
+                        ></p>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="samples"
+                            >Number of images</label
+                        >
+                        <input
+                            id="samples"
+                            name="samples"
+                            type="number"
+                            min="1"
+                            max="100000"
+                            value="1000"
+                            required
+                            inputmode="numeric"
+                        />
+                    </div>
+                    <fieldset class="field" id="language-shares-field" hidden>
+                        <legend class="field-label">Share of images</legend>
+                        <div class="share-list" id="language-shares"></div>
+                        <p class="field-help">
+                            Changing one language adjusts the others so the
+                            total stays 100%.
+                        </p>
+                    </fieldset>
+                </section>
+
+                <section class="card" aria-labelledby="look-title">
+                    <h2 id="look-title">
+                        <span class="step-number">2</span>Look
+                    </h2>
+                    <fieldset class="field">
+                        <legend class="sr-only">Image style</legend>
+                        <div class="choice-grid three" id="style-options">
+                            <label class="choice">
+                                <input
+                                    type="radio"
+                                    name="style"
+                                    value="clean"
+                                />
+                                <span class="choice-card"
+                                    ><strong data-style-label="clean"
+                                        >Clean</strong
+                                    ><span data-style-description="clean"
+                                        >Black text on white.</span
+                                    ></span
+                                >
+                            </label>
+                            <label class="choice">
+                                <input
+                                    type="radio"
+                                    name="style"
+                                    value="balanced"
+                                    checked
+                                />
+                                <span class="choice-card"
+                                    ><strong data-style-label="balanced"
+                                        >Balanced</strong
+                                    ><span data-style-description="balanced"
+                                        >Clean images mixed with scans, old
+                                        paper and phone photos.</span
+                                    ></span
+                                >
+                            </label>
+                            <label class="choice">
+                                <input
+                                    type="radio"
+                                    name="style"
+                                    value="varied"
+                                />
+                                <span class="choice-card"
+                                    ><strong data-style-label="varied"
+                                        >Varied</strong
+                                    ><span data-style-description="varied"
+                                        >Every image on a different realistic
+                                        paper.</span
+                                    ></span
+                                >
+                            </label>
+                        </div>
+                        <p class="field-help" id="style-status" hidden>
+                            Custom settings. Pick a style to start over.
+                        </p>
+                    </fieldset>
+                    <details class="customize" id="customize">
+                        <summary>
+                            Customize<span
+                                data-icon="chevron"
+                                aria-hidden="true"
+                            ></span>
+                        </summary>
+                        <div class="customize-inner">
+                            <div class="field">
+                                <div class="label-row">
+                                    <label
+                                        class="field-label"
+                                        for="effects-amount"
+                                        >Images with effects</label
+                                    >
+                                    <output
+                                        id="effects-amount-value"
+                                        for="effects-amount"
+                                        >75%</output
+                                    >
+                                </div>
+                                <input
+                                    id="effects-amount"
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    step="5"
+                                    value="75"
+                                    aria-describedby="effects-amount-help"
+                                />
+                                <p class="field-help" id="effects-amount-help">
+                                    The rest are clean black text on white.
+                                </p>
+                            </div>
+                            <fieldset class="field" id="backgrounds-field">
+                                <legend class="field-label">Backgrounds</legend>
+                                <p class="field-help">
+                                    Each image with effects uses one of the
+                                    backgrounds you select.
+                                </p>
+                                <div
+                                    class="chip-list"
+                                    id="background-options"
+                                ></div>
+                            </fieldset>
+                            <fieldset class="field" id="effects-field">
+                                <legend class="field-label">Effects</legend>
+                                <p class="field-help">
+                                    Auto uses each background's own amount.
+                                </p>
+                                <div
+                                    class="effect-list"
+                                    id="effect-options"
+                                ></div>
+                            </fieldset>
+                            <fieldset class="field" id="geometry-field">
+                                <legend class="field-label">
+                                    Tilt, blur and contrast
+                                </legend>
+                                <p class="field-help">
+                                    Each image gets a random amount up to the
+                                    value you set. 0 turns it off.
+                                </p>
+                                <div class="slider-list">
+                                    <div class="slider-row">
+                                        <label for="tilt-amount">Tilt</label>
+                                        <input
+                                            id="tilt-amount"
+                                            type="range"
+                                            min="0"
+                                            max="10"
+                                            step="0.5"
+                                            value="2"
+                                        />
+                                        <output
+                                            id="tilt-amount-value"
+                                            for="tilt-amount"
+                                            >2°</output
+                                        >
+                                    </div>
+                                    <div class="slider-row">
+                                        <label for="blur-amount">Blur</label>
+                                        <input
+                                            id="blur-amount"
+                                            type="range"
+                                            min="0"
+                                            max="2"
+                                            step="0.05"
+                                            value="0.55"
+                                        />
+                                        <output
+                                            id="blur-amount-value"
+                                            for="blur-amount"
+                                            >0.55 px</output
+                                        >
+                                    </div>
+                                    <div class="slider-row">
+                                        <label for="contrast-amount"
+                                            >Contrast</label
+                                        >
+                                        <input
+                                            id="contrast-amount"
+                                            type="range"
+                                            min="0"
+                                            max="50"
+                                            step="5"
+                                            value="10"
+                                        />
+                                        <output
+                                            id="contrast-amount-value"
+                                            for="contrast-amount"
+                                            >10%</output
+                                        >
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="field">
+                                <div class="label-row">
+                                    <label class="field-label" for="text-size"
+                                        >Text size</label
+                                    >
+                                    <output id="text-size-value" for="text-size"
+                                        >48 px</output
+                                    >
+                                </div>
+                                <input
+                                    id="text-size"
+                                    type="range"
+                                    min="24"
+                                    max="96"
+                                    step="4"
+                                    value="48"
+                                    aria-describedby="text-size-help"
+                                />
+                                <p class="field-help" id="text-size-help">
+                                    How tall the letters are in pixels. Long
+                                    lines shrink to fit.
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+                    <details class="customize" id="fonts-panel">
+                        <summary>
+                            <span
+                                >Fonts
+                                <span class="summary-note" id="fonts-summary"
+                                    >All</span
+                                ></span
+                            ><span
+                                data-icon="chevron"
+                                aria-hidden="true"
+                            ></span>
+                        </summary>
+                        <div class="customize-inner">
+                            <p class="field-help">
+                                Each image uses one of the chosen fonts that can
+                                draw all of its text. Fonts you add stay in this
+                                app on your computer.
+                            </p>
+                            <div class="font-actions">
+                                <button
+                                    type="button"
+                                    class="text-button"
+                                    id="fonts-all"
+                                >
+                                    All
+                                </button>
+                                <button
+                                    type="button"
+                                    class="text-button"
+                                    id="fonts-languages"
+                                >
+                                    Only for my languages
+                                </button>
+                                <button
+                                    type="button"
+                                    class="text-button"
+                                    id="fonts-none"
+                                >
+                                    None
+                                </button>
+                                <label class="secondary-button add-font">
+                                    <span
+                                        data-icon="plus"
+                                        aria-hidden="true"
+                                    ></span
+                                    >Add font…
+                                    <input
+                                        id="font-file"
+                                        class="sr-only"
+                                        type="file"
+                                        accept=".ttf,.otf,.ttc,.otc"
+                                        multiple
+                                    />
+                                </label>
+                            </div>
+                            <p
+                                class="field-status"
+                                id="font-status"
+                                role="status"
+                                aria-live="polite"
+                            ></p>
+                            <p class="field-error" id="font-error" hidden></p>
+                            <div
+                                class="font-list"
+                                id="font-list"
+                                role="group"
+                                aria-label="Fonts"
+                            ></div>
+                        </div>
+                    </details>
+                    <div class="preview" id="preview" aria-busy="true">
+                        <div class="preview-heading">
+                            <span class="field-label">Preview</span>
+                            <button
+                                type="button"
+                                class="text-button"
+                                id="refresh-preview"
+                            >
+                                <span
+                                    data-icon="refresh"
+                                    aria-hidden="true"
+                                ></span
+                                >Another example
+                            </button>
+                        </div>
+                        <p class="field-help" id="preview-loading">
+                            Rendering examples…
+                        </p>
+                        <p
+                            class="field-error"
+                            id="preview-error"
+                            role="status"
+                            hidden
+                        ></p>
+                        <div class="preview-grid" id="preview-grid"></div>
+                        <div class="label-box">
+                            <span class="label-title"
+                                >Text label (ground truth)</span
+                            >
+                            <p id="preview-text" dir="auto">…</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card" aria-labelledby="generate-title">
+                    <h2 id="generate-title">
+                        <span class="step-number">3</span>Generate
+                    </h2>
+                    <div class="field">
+                        <span class="field-label" id="folder-label"
+                            >Save to</span
+                        >
+                        <div class="folder-row">
+                            <span
+                                class="folder-name"
+                                id="folder-name"
+                                aria-labelledby="folder-label"
+                                >No folder chosen</span
+                            >
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="choose-folder"
+                            >
+                                <span
+                                    data-icon="folder"
+                                    aria-hidden="true"
+                                ></span
+                                >Choose folder…
+                            </button>
+                        </div>
+                        <p
+                            class="field-help"
+                            id="folder-status"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            Choose a folder on your computer. The dataset is
+                            saved there when it is ready.
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="dataset-name"
+                            >Dataset name</label
+                        >
+                        <input
+                            id="dataset-name"
+                            name="name"
+                            value="kurdish-dataset"
+                            maxlength="64"
+                            pattern="[A-Za-z0-9][A-Za-z0-9_\-]*"
+                            required
+                            aria-describedby="dataset-name-help"
+                        />
+                        <p class="field-help" id="dataset-name-help">
+                            A new folder with this name is created. Letters,
+                            numbers, - and _.
+                        </p>
+                    </div>
+                    <fieldset class="field">
+                        <legend class="field-label">Label format</legend>
+                        <div class="format-list">
+                            <label class="format-option">
+                                <input
+                                    type="radio"
+                                    name="download-format"
+                                    value="dataset"
+                                    checked
+                                />
+                                <span
+                                    ><strong>Images + labels.jsonl</strong
+                                    ><small
+                                        >One JSON line per image with its text.
+                                        Works with any training code.</small
+                                    ></span
+                                >
+                            </label>
+                            <label class="format-option">
+                                <input
+                                    type="radio"
+                                    name="download-format"
+                                    value="csv"
+                                />
+                                <span
+                                    ><strong>Images + labels.csv</strong
+                                    ><small
+                                        >A spreadsheet: image file name and
+                                        text.</small
+                                    ></span
+                                >
+                            </label>
+                            <label class="format-option">
+                                <input
+                                    type="radio"
+                                    name="download-format"
+                                    value="tesseract"
+                                />
+                                <span
+                                    ><strong>Images + .gt.txt files</strong
+                                    ><small
+                                        >One text file next to each image, for
+                                        Tesseract training.</small
+                                    ></span
+                                >
+                            </label>
+                            <label class="format-option">
+                                <input
+                                    type="radio"
+                                    name="download-format"
+                                    value="imagefolder"
+                                />
+                                <span
+                                    ><strong>Hugging Face ImageFolder</strong
+                                    ><small
+                                        >Images + metadata.jsonl for
+                                        <code>load_dataset</code>.</small
+                                    ></span
+                                >
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div
+                        class="form-error"
+                        id="form-error"
+                        role="alert"
+                        hidden
+                    ></div>
+                    <button
+                        class="primary-button"
+                        id="generate-button"
+                        type="submit"
+                    >
+                        <span id="generate-label">Generate dataset</span
+                        ><span
+                            data-icon="arrow-right"
+                            aria-hidden="true"
+                        ></span>
+                    </button>
+                </section>
+            </form>
+
+            <section
+                class="card result"
+                id="generation-results"
+                aria-labelledby="run-title"
+                hidden
+            >
+                <div class="result-heading">
+                    <h2 id="run-title">Your dataset</h2>
+                    <span class="status-badge" id="job-status">Preparing</span>
+                </div>
+                <p class="job-name" id="job-name"></p>
+                <div class="progress-track">
+                    <div
+                        id="job-progress"
+                        class="progress-bar"
+                        style="width: 0%"
+                    ></div>
+                </div>
+                <div class="progress-details">
+                    <span id="job-message" role="status" aria-live="polite"
+                        >Preparing…</span
+                    ><span id="job-count"></span>
+                </div>
+                <button type="button" class="secondary-button" id="cancel-job">
+                    Cancel
+                </button>
+                <div
+                    class="field-error"
+                    id="job-error"
+                    role="alert"
+                    hidden
+                ></div>
+                <div class="save-panel" id="save-panel" hidden>
+                    <p
+                        class="save-status"
+                        id="save-status"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+                    <p
+                        class="field-error"
+                        id="save-error"
+                        role="alert"
+                        hidden
+                    ></p>
+                    <div class="save-actions">
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="save-button"
+                        >
+                            <span data-icon="folder" aria-hidden="true"></span
+                            ><span id="save-label">Save to a folder…</span>
+                        </button>
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="download-button"
+                        >
+                            <span data-icon="download" aria-hidden="true"></span
+                            >Download ZIP instead
+                        </button>
+                    </div>
+                    <p
+                        id="download-status"
+                        class="field-help"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+                    <p
+                        id="download-error"
+                        class="field-error"
+                        role="alert"
+                        hidden
+                    ></p>
+                </div>
+                <section class="gallery" id="gallery-section" hidden>
+                    <div class="gallery-heading">
+                        <h3>Examples from your dataset</h3>
+                        <span id="gallery-count"></span>
+                    </div>
+                    <div class="sample-gallery" id="sample-gallery"></div>
+                    <div
+                        class="gallery-pagination"
+                        id="gallery-pagination"
+                        hidden
+                    >
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="gallery-previous"
+                        >
+                            Previous
+                        </button>
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="gallery-next"
+                        >
+                            Next
+                        </button>
+                    </div>
+                </section>
+            </section>
+
+            <section
+                class="card history"
+                id="recent-section"
+                aria-labelledby="history-title"
+                hidden
+            >
+                <h2 id="history-title">Earlier datasets</h2>
+                <div id="recent-runs"></div>
+            </section>
+        </main>
+        <div id="toast" class="toast" role="status" hidden></div>
+    </body>
+</html>

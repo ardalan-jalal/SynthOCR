@@ -1,0 +1,18 @@
+{
+  "sorani": {
+    "language": "ckb",
+    "letters": "ئابپتجچحخدرزڕژسشعغفڤقکگلڵمنهەوۆیێ",
+    "digits": "0123456789٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹",
+    "punctuation": "،؛؟.,:!%+-/()«»٫٬٪",
+    "reference": "https://unicode.org/cldr/charts/49/summary/ckb.html",
+    "notes": "Core alphabet checked against CLDR 49; practical audit adds all three digit sets. Not a language detector or normalization map."
+  },
+  "kurmanji": {
+    "language": "kmr",
+    "letters": "abcçdeêfghiîjklmnopqrsştuûvwxyzABCÇDEÊFGHIÎJKLMNOPQRSŞTUÛVWXYZ",
+    "digits": "0123456789",
+    "punctuation": ".,;:!?%+-/()'\"",
+    "reference": "https://unicode.org/cldr/charts/49/summary/ku.html",
+    "notes": "Latin core alphabet checked against CLDR 49 ku, including uppercase. Arabic-script Kurmanji and loanwords need text-specific checks."
+  }
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="SynthOCR — OCR training data for Kurdish. Text images with exact labels, made on your computer.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14121f"/>
+      <stop offset="1" stop-color="#1e1a33"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a99aff"/>
+      <stop offset="1" stop-color="#d98ae6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="24" fill="url(#bg)"/>
+  <!-- Three sample "images": clean, scanned and aged paper -->
+  <g transform="translate(760 62)">
+    <rect width="380" height="48" rx="6" fill="#ffffff"/>
+    <rect y="62" width="380" height="48" rx="6" fill="#e6e6e3"/>
+    <rect y="124" width="380" height="48" rx="6" fill="#e8d9b0"/>
+    <g font-family="'Noto Naskh Arabic', 'Noto Sans Arabic', Tahoma, sans-serif" font-size="26" fill="#1a1a1a" text-anchor="middle">
+      <text x="190" y="33">ڕاهێنانی OCR بە کوردی</text>
+      <text x="190" y="95" transform="rotate(-1 190 86)">ڕاهێنانی OCR بە کوردی</text>
+      <text x="190" y="157" fill="#2a2418" transform="rotate(1 190 148)">ڕاهێنانی OCR بە کوردی</text>
+    </g>
+  </g>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="64" y="128" font-size="64" font-weight="700" fill="#f0eff6">Synth<tspan fill="url(#accent)">OCR</tspan></text>
+    <text x="66" y="174" font-size="24" fill="#c9c6dc">OCR training data for Kurdish</text>
+    <text x="66" y="214" font-size="18" fill="#9a97b0">Text images with exact labels · Sorani, Kurmanji, Arabic, English</text>
+    <text x="66" y="242" font-size="18" fill="#9a97b0">Made on your computer · MIT OR Apache-2.0</text>
+  </g>
+</svg>

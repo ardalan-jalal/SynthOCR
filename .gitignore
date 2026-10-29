@@ -1,0 +1,53 @@
+# Generated data and machine-specific backups (raw corpora stay versioned).
+/dataset/
+/data/processed/*
+!/data/processed/.gitkeep
+/.local/
+/logs/
+/fonts/font_index.json
+
+# Virtual environments, Python caches, and test tooling.
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Packaging, logs, and profiling output.
+*.egg-info/
+/dist/
+/build/
+*.log
+*.prof
+
+# Local credentials and agent overrides; example files and shared skills stay versioned.
+.env
+.env.*
+!.env.example
+!.env.sample
+/.secrets/
+/.claude/settings.local.json
+/.claude/worktrees/
+/.claude/sessions/
+
+# Editor and operating-system metadata.
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini

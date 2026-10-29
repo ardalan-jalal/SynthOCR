@@ -1,0 +1,22 @@
+SynthOCR
+Copyright (c) 2026 Ardalan Jalal
+
+The SynthOCR source code is licensed under either of the MIT License
+(LICENSE-MIT) or the Apache License, Version 2.0 (LICENSE-APACHE), at your
+option.
+
+The code license does not cover the following, which keep their own terms:
+
+- Fonts in fonts/open/: SIL Open Font License 1.1. Each family includes its
+  OFL.txt; synthocr/font_catalog.json pins the upstream commit and checksums.
+- Tatoeba sentences in data/raw/tatoeba/: CC BY 2.0 France. Contributor
+  attribution is kept with every record and in each dataset's origins.jsonl.
+- Synthetic template text in data/raw/synthetic-v2/ and the Kurdish spelling
+  cases in data/raw/kurdish-spelling-v1/: CC0 1.0, as recorded per record.
+- data/raw/examples.jsonl: example text written for this project, licensed
+  with the code.
+- The Kurdish reference characters in synthocr/kurdish_characters.json come
+  from https://github.com/ardalan-jalal/font-checking.
+
+Datasets you generate inherit the terms of the text and fonts used to make them.
+See data/SOURCES.md and fonts/README.md for details.

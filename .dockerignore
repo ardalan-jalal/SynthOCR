@@ -1,0 +1,23 @@
+# Allow only runtime build inputs. Raw corpora, outputs, caches, .git, developer
+# environments, user fonts and the remaining open font collection stay outside.
+**
+!.dockerignore
+!Dockerfile
+!pyproject.toml
+!uv.lock
+!README.md
+!LICENSE-MIT
+!LICENSE-APACHE
+!NOTICE
+!synthocr/
+!synthocr/**
+!deploy/
+!deploy/container.toml
+!fonts/
+!fonts/open/
+!fonts/open/notosans/
+!fonts/open/notosans/**
+!fonts/open/notonaskharabic/
+!fonts/open/notonaskharabic/**
+**/__pycache__/
+**/*.py[cod]

@@ -1,0 +1,26 @@
+{"text": "سڵاو، ئەمە دەقێکی کوردییە بۆ تاقیکردنەوەی ناسینەوەی نووسین.", "language": "ckb", "genre": "prose"}
+{"text": "مرحبًا بالعالم، هذه عينة عربية مع التشكيل.", "language": "ar", "genre": "prose"}
+{"text": "A quick brown fox reads a book in the public library.", "language": "en", "genre": "prose"}
+{"text": "Une bibliothèque ouverte à tous, avec des livres illustrés.", "language": "fr", "genre": "prose"}
+{"text": "Zwölf Bücher über große Städte und schöne Gärten.", "language": "de", "genre": "prose"}
+{"text": "Открытая библиотека хранит книги о науке и культуре.", "language": "ru", "genre": "prose"}
+{"text": "Η βιβλιοθήκη είναι ανοιχτή για όλους.", "language": "el", "genre": "prose"}
+{"text": "הספרייה פתוחה לכולם.", "language": "he", "genre": "prose"}
+{"text": "सार्वजनिक पुस्तकालय में आपका स्वागत है।", "language": "hi", "genre": "prose"}
+{"text": "সবার জন্য উন্মুক্ত একটি পাঠাগার।", "language": "bn", "genre": "prose"}
+{"text": "அனைவருக்கும் திறந்த நூலகம்.", "language": "ta", "genre": "prose"}
+{"text": "ห้องสมุดเปิดให้ทุกคนเข้ามาอ่านหนังสือ", "language": "th", "genre": "prose"}
+{"text": "ቤተ መጻሕፍቱ ለሁሉም ክፍት ነው።", "language": "am", "genre": "prose"}
+{"text": "Գրադարանը բաց է բոլորի համար։", "language": "hy", "genre": "prose"}
+{"text": "ბიბლიოთეკა ყველასთვის ღიაა.", "language": "ka", "genre": "prose"}
+{"text": "Item 42 | Qty 3 | Unit 12.50 | Total 37.50 USD", "language": "en", "genre": "receipt"}
+{"text": "کتێب | ٣ دانە | کۆی گشتی ١٥٠٠٠ دینار", "language": "ckb", "genre": "receipt"}
+{"text": "Invoice INV-2026-000042 / Ref: AB-1947", "language": "en", "genre": "identifier"}
+{"text": "2026-10-24 14:35:08 UTC+03:00", "language": "en", "genre": "date"}
+{"text": "https://example.org/catalog?q=books&lang=en", "language": "en", "genre": "web"}
+{"text": "reader+books@example.org", "language": "en", "genre": "web"}
+{"text": "0 1 2 3 4 5 6 7 8 9 -12.75 +42% 1,234,567.89", "language": "en", "genre": "number"}
+{"text": "٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ ١٢٣٫٤٥", "language": "ar", "genre": "number"}
+{"text": "۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ ۱۲۳٫۴۵", "language": "fa", "genre": "number"}
+{"text": "کتاب‌خانه برای همه باز است.", "language": "fa", "genre": "prose"}
+{"text": "Book کتێب 2026 — price 12.50", "language": "en", "genre": "mixed"}

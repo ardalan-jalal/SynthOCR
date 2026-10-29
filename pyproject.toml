@@ -1,0 +1,72 @@
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"
+
+[project]
+name = "synthocr"
+version = "2.1.0"
+description = "OCR training data for Kurdish and other languages: text images with exact labels"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+license-files = ["LICENSE-MIT", "LICENSE-APACHE", "NOTICE"]
+authors = [{ name = "Ardalan Jalal" }]
+keywords = ["ocr", "synthetic-data", "kurdish", "sorani", "kurmanji", "text-recognition", "dataset"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Natural Language :: Arabic",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+    "Topic :: Text Processing :: Linguistic",
+]
+requires-python = ">=3.14"
+dependencies = ["pillow>=13.0.0", "fonttools>=4.67.0", "regex>=2026.9.29"]
+
+[project.scripts]
+synthocr = "synthocr.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ardalan-jalal/SynthOCR"
+Documentation = "https://github.com/ardalan-jalal/SynthOCR/blob/main/docs/ui.md"
+Repository = "https://github.com/ardalan-jalal/SynthOCR"
+Issues = "https://github.com/ardalan-jalal/SynthOCR/issues"
+
+[project.optional-dependencies]
+web = [
+    "fastapi>=0.162.0",
+    "uvicorn>=0.53.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.2",
+    "pip-audit>=2.10.1",
+    "httpx2>=2.13.0",
+]
+
+[tool.uv]
+default-groups = []
+
+[tool.uv.build-backend]
+module-root = ""
+
+# The cp315 macOS wheel cannot discover Homebrew's FriBiDi. Build the same
+# upstream release with explicit RAQM support on this platform only.
+[tool.uv.sources]
+pillow = [{ url = "https://files.pythonhosted.org/packages/ce/a4/9cc30690a394a8305e8be4c9036aa16d0dfddadd09079860b582f562496d/pillow-13.0.0.tar.gz", marker = "sys_platform == 'darwin' and python_version >= '3.15'" }]
+
+[tool.uv.config-settings-package]
+pillow = { raqm = "enable" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

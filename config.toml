@@ -1,0 +1,59 @@
+# Paths are relative to this file, independent of the shell's working directory.
+[data]
+raw = "data/raw"
+processed = "data/processed"
+max_chars = 100 # Unicode grapheme clusters, never split a combining sequence
+normalization = "NFC"
+deduplicate = true
+write_jsonl = false # SQLite is the single processed store; opt in for a text-only JSONL copy
+max_line_chars = 1000000
+source_languages = {} # e.g. {"my-text.txt" = "ckb"}: explicit metadata, never guessed from script
+
+[fonts]
+directories = ["fonts"]
+coverage = "strict" # strict: choose a compatible font; off: explicitly allow missing glyphs
+cache_size = 32 # native FreeType font objects, per worker
+coverage_cache_size = 128 # compact glyph bitmaps; much cheaper than font objects
+
+[generation]
+output = "dataset/default"
+samples = 1000
+seed = 42
+workers = 1 # lowest memory; opt into more workers for throughput
+font_size = 48
+padding = 12
+max_width = 4096
+max_height = 512
+max_pixels = 2097152
+format = "png" # png, jpg, webp, tif
+direction = "auto" # auto, ltr, rtl, ttb
+language = "" # optional BCP 47 language override
+languages = [] # source-language filter; e.g. ["ckb"] or ["ckb", "kmr"]; [] includes all
+exclude_genres = [] # generic generate includes all; kurdish excludes spelling diagnostics
+suite = "" # optional "kurdish-spelling" replaces ordinary corpus with bundled cases
+augmentation = 0.25
+background = "paper" # paper, plain, gradient, noise
+color_mode = "grayscale" # grayscale or rgb
+background_color = "#f5f1e8"
+background_color_end = "#e4e9ed" # gradient end color
+text_color = "#1a1a1a"
+texture_strength = 0.04 # paper/noise intensity, 0..0.25
+rotation = 2 # maximum absolute rotation, degrees (0..10)
+blur = 0.55 # maximum Gaussian radius, pixels (0..2)
+contrast = 0.1 # maximum contrast variation around 1 (0..0.5)
+# Choose several document types to mix them across generated images.
+background_presets = [] # e.g. office-scan, thermal-receipt, book-page; see docs/augmentation.md
+preset_colors = true # false applies the custom colors above to every document type
+# Optional independent effects, each 0..1. Omit to inherit the chosen document recipe;
+# set 0 to remove that effect. Any of these can be combined.
+# paper_texture = 0.3
+# grain = 0.15
+# shadow = 0.2
+# stains = 0.15
+# creases = 0.1
+# ruled_lines = 0.2
+# scan_banding = 0.15
+# speckles = 0.2
+# binding_shadow = 0.3
+train_ratio = 0.9
+validation_ratio = 0.05

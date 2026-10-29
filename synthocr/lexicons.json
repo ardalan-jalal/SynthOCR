@@ -1,0 +1,82 @@
+{
+  "en": {
+    "subjects": ["The students", "The teachers", "The readers", "The visitors", "The researchers", "The children", "The writers", "The neighbors"],
+    "verbs": ["read books", "write notes", "discuss new ideas", "work together", "ask questions", "share stories"],
+    "places": ["in the library", "at the school", "in the garden", "at the museum", "in the city", "near the river"],
+    "prose": "{subject} {verb} {place}.",
+    "items": ["Book", "Notebook", "Pencil", "Tea", "Rice", "Bread", "Coffee", "Paper", "Milk", "Apple", "Soap", "Bag"],
+    "streets": ["Library Road", "Garden Street", "River Avenue", "School Lane", "Market Road", "Museum Street"],
+    "cities": ["Erbil", "Sulaymaniyah", "Duhok", "Baghdad", "Basra", "Kirkuk"],
+    "total": "Total", "invoice": "Invoice", "unit": "Unit", "quantity": "Quantity"
+  },
+  "ckb": {
+    "subjects": ["خوێندکارەکان", "مامۆستاکان", "خوێنەران", "گەشتیاران", "نووسەران", "منداڵەکان", "هاوڕێکان", "هاوسێکان"],
+    "verbs": ["کتێب دەخوێننەوە", "تێبینی دەنووسن", "گفتوگۆ دەکەن", "کار دەکەن", "پرسیار دەکەن", "چیرۆک دەگێڕنەوە"],
+    "places": ["لە کتێبخانەدا", "لە قوتابخانەدا", "لە باخچەدا", "لە مۆزەخانەدا", "لە شاردا", "لە نزیک ڕووبارەکەدا"],
+    "prose": "{subject} {place} {verb}.",
+    "items": ["کتێب", "دەفتەر", "پێنووس", "چا", "برنج", "نان", "قاوە", "کاغەز", "شیر", "سێو", "سابوون", "جانتا"],
+    "streets": ["شەقامی کتێبخانە", "شەقامی باخچە", "شەقامی ڕووبار", "شەقامی قوتابخانە", "شەقامی بازاڕ", "شەقامی مۆزەخانە"],
+    "cities": ["هەولێر", "سلێمانی", "دهۆک", "بەغدا", "بەسرە", "کەرکووک"],
+    "total": "کۆی گشتی", "invoice": "پسووڵە", "unit": "نرخی یەکە", "quantity": "ژمارە"
+  },
+  "ar": {
+    "subjects": ["الطلاب", "المعلمون", "القراء", "الزوار", "الباحثون", "الأطفال", "الكتاب", "الجيران"],
+    "verbs": ["يقرؤون الكتب", "يكتبون الملاحظات", "يناقشون أفكارًا جديدة", "يعملون معًا", "يطرحون الأسئلة", "يتبادلون القصص"],
+    "places": ["في المكتبة", "في المدرسة", "في الحديقة", "في المتحف", "في المدينة", "بالقرب من النهر"],
+    "prose": "{subject} {verb} {place}.",
+    "items": ["كتاب", "دفتر", "قلم", "شاي", "أرز", "خبز", "قهوة", "ورق", "حليب", "تفاح", "صابون", "حقيبة"],
+    "streets": ["شارع المكتبة", "شارع الحديقة", "شارع النهر", "شارع المدرسة", "شارع السوق", "شارع المتحف"],
+    "cities": ["أربيل", "السليمانية", "دهوك", "بغداد", "البصرة", "كركوك"],
+    "total": "المجموع", "invoice": "فاتورة", "unit": "سعر الوحدة", "quantity": "الكمية"
+  },
+  "fa": {
+    "subjects": ["دانشجویان", "معلمان", "خوانندگان", "بازدیدکنندگان", "پژوهشگران", "کودکان", "نویسندگان", "همسایه‌ها"],
+    "verbs": ["کتاب می‌خوانند", "یادداشت می‌نویسند", "گفت‌وگو می‌کنند", "با هم کار می‌کنند", "پرسش می‌کنند", "داستان تعریف می‌کنند"],
+    "places": ["در کتابخانه", "در مدرسه", "در باغ", "در موزه", "در شهر", "کنار رودخانه"],
+    "prose": "{subject} {place} {verb}.",
+    "items": ["کتاب", "دفتر", "مداد", "چای", "برنج", "نان", "قهوه", "کاغذ", "شیر", "سیب", "صابون", "کیف"],
+    "streets": ["خیابان کتابخانه", "خیابان باغ", "خیابان رودخانه", "خیابان مدرسه", "خیابان بازار", "خیابان موزه"],
+    "cities": ["تهران", "شیراز", "تبریز", "اصفهان", "رشت", "کرمانشاه"],
+    "total": "مجموع", "invoice": "صورت‌حساب", "unit": "قیمت واحد", "quantity": "تعداد"
+  },
+  "de": {
+    "subjects": ["Die Studierenden", "Die Lehrkräfte", "Die Leser", "Die Besucher", "Die Forschenden", "Die Kinder", "Die Autoren", "Die Nachbarn"],
+    "verbs": ["lesen Bücher", "schreiben Notizen", "diskutieren neue Ideen", "arbeiten zusammen", "stellen Fragen", "erzählen Geschichten"],
+    "places": ["in der Bibliothek", "in der Schule", "im Garten", "im Museum", "in der Stadt", "am Fluss"],
+    "prose": "{subject} {verb} {place}.",
+    "items": ["Buch", "Heft", "Bleistift", "Tee", "Reis", "Brot", "Kaffee", "Papier", "Milch", "Apfel", "Seife", "Tasche"],
+    "streets": ["Bibliotheksstraße", "Gartenstraße", "Flussweg", "Schulstraße", "Marktstraße", "Museumsstraße"],
+    "cities": ["Berlin", "München", "Köln", "Hamburg", "Bremen", "Dresden"],
+    "total": "Gesamt", "invoice": "Rechnung", "unit": "Einzelpreis", "quantity": "Menge"
+  },
+  "fr": {
+    "subjects": ["Les étudiants", "Les enseignants", "Les lecteurs", "Les visiteurs", "Les chercheurs", "Les enfants", "Les auteurs", "Les voisins"],
+    "verbs": ["lisent des livres", "écrivent des notes", "discutent de nouvelles idées", "travaillent ensemble", "posent des questions", "racontent des histoires"],
+    "places": ["à la bibliothèque", "à l’école", "dans le jardin", "au musée", "en ville", "près de la rivière"],
+    "prose": "{subject} {verb} {place}.",
+    "items": ["Livre", "Cahier", "Crayon", "Thé", "Riz", "Pain", "Café", "Papier", "Lait", "Pomme", "Savon", "Sac"],
+    "streets": ["Rue de la Bibliothèque", "Rue du Jardin", "Rue de la Rivière", "Rue de l’École", "Rue du Marché", "Rue du Musée"],
+    "cities": ["Paris", "Lyon", "Nice", "Lille", "Nantes", "Bordeaux"],
+    "total": "Total", "invoice": "Facture", "unit": "Prix unitaire", "quantity": "Quantité"
+  },
+  "es": {
+    "subjects": ["Los estudiantes", "Los profesores", "Los lectores", "Los visitantes", "Los investigadores", "Los niños", "Los autores", "Los vecinos"],
+    "verbs": ["leen libros", "escriben notas", "comentan nuevas ideas", "trabajan juntos", "hacen preguntas", "cuentan historias"],
+    "places": ["en la biblioteca", "en la escuela", "en el jardín", "en el museo", "en la ciudad", "cerca del río"],
+    "prose": "{subject} {verb} {place}.",
+    "items": ["Libro", "Cuaderno", "Lápiz", "Té", "Arroz", "Pan", "Café", "Papel", "Leche", "Manzana", "Jabón", "Bolsa"],
+    "streets": ["Calle de la Biblioteca", "Calle del Jardín", "Calle del Río", "Calle de la Escuela", "Calle del Mercado", "Calle del Museo"],
+    "cities": ["Madrid", "Sevilla", "Valencia", "Málaga", "Bilbao", "Toledo"],
+    "total": "Total", "invoice": "Factura", "unit": "Precio unitario", "quantity": "Cantidad"
+  },
+  "tr": {
+    "subjects": ["Öğrenciler", "Öğretmenler", "Okurlar", "Ziyaretçiler", "Araştırmacılar", "Çocuklar", "Yazarlar", "Komşular"],
+    "verbs": ["kitap okuyor", "not yazıyor", "yeni fikirleri tartışıyor", "birlikte çalışıyor", "soru soruyor", "hikâye anlatıyor"],
+    "places": ["kütüphanede", "okulda", "bahçede", "müzede", "şehirde", "nehir kenarında"],
+    "prose": "{subject} {place} {verb}.",
+    "items": ["Kitap", "Defter", "Kalem", "Çay", "Pirinç", "Ekmek", "Kahve", "Kâğıt", "Süt", "Elma", "Sabun", "Çanta"],
+    "streets": ["Kütüphane Caddesi", "Bahçe Sokak", "Nehir Caddesi", "Okul Sokak", "Pazar Caddesi", "Müze Sokak"],
+    "cities": ["Ankara", "İstanbul", "İzmir", "Bursa", "Konya", "Van"],
+    "total": "Toplam", "invoice": "Fatura", "unit": "Birim fiyat", "quantity": "Miktar"
+  }
+}

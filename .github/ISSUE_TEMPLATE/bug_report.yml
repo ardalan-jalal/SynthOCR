@@ -1,0 +1,23 @@
+name: Bug report
+description: Something does not work as expected.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: For a rendering problem, attach the image and paste its exact label.
+  - type: input
+    id: version
+    attributes:
+      label: Version and system
+      placeholder: "SynthOCR 2.1.0, macOS 15, Chrome 140"
+    validations:
+      required: true

@@ -1,0 +1,442 @@
+{
+    "0": {
+        "char": "0",
+        "count": 2,
+        "codepoint": "U+0030"
+    },
+    "1": {
+        "char": "1",
+        "count": 2,
+        "codepoint": "U+0031"
+    },
+    "2": {
+        "char": "2",
+        "count": 2,
+        "codepoint": "U+0032"
+    },
+    "3": {
+        "char": "3",
+        "count": 2,
+        "codepoint": "U+0033"
+    },
+    "4": {
+        "char": "4",
+        "count": 2,
+        "codepoint": "U+0034"
+    },
+    "5": {
+        "char": "5",
+        "count": 2,
+        "codepoint": "U+0035"
+    },
+    "6": {
+        "char": "6",
+        "count": 2,
+        "codepoint": "U+0036"
+    },
+    "7": {
+        "char": "7",
+        "count": 2,
+        "codepoint": "U+0037"
+    },
+    "8": {
+        "char": "8",
+        "count": 2,
+        "codepoint": "U+0038"
+    },
+    "9": {
+        "char": "9",
+        "count": 2,
+        "codepoint": "U+0039"
+    },
+    " ": {
+        "char": " ",
+        "count": 1,
+        "codepoint": "U+0020"
+    },
+    "ە": {
+        "char": "ە",
+        "count": 1,
+        "codepoint": "U+06D5"
+    },
+    "ا": {
+        "char": "ا",
+        "count": 1,
+        "codepoint": "U+0627"
+    },
+    "ی": {
+        "char": "ی",
+        "count": 1,
+        "codepoint": "U+06CC"
+    },
+    "و": {
+        "char": "و",
+        "count": 1,
+        "codepoint": "U+0648"
+    },
+    "ن": {
+        "char": "ن",
+        "count": 1,
+        "codepoint": "U+0646"
+    },
+    "ر": {
+        "char": "ر",
+        "count": 1,
+        "codepoint": "U+0631"
+    },
+    "د": {
+        "char": "د",
+        "count": 1,
+        "codepoint": "U+062F"
+    },
+    "ه": {
+        "char": "ه",
+        "count": 1,
+        "codepoint": "U+0647"
+    },
+    "ت": {
+        "char": "ت",
+        "count": 1,
+        "codepoint": "U+062A"
+    },
+    "ێ": {
+        "char": "ێ",
+        "count": 1,
+        "codepoint": "U+06CE"
+    },
+    "ب": {
+        "char": "ب",
+        "count": 1,
+        "codepoint": "U+0628"
+    },
+    "ک": {
+        "char": "ک",
+        "count": 1,
+        "codepoint": "U+06A9"
+    },
+    "م": {
+        "char": "م",
+        "count": 1,
+        "codepoint": "U+0645"
+    },
+    "‌": {
+        "char": "‌",
+        "count": 1,
+        "codepoint": "U+200C"
+    },
+    "س": {
+        "char": "س",
+        "count": 1,
+        "codepoint": "U+0633"
+    },
+    "ل": {
+        "char": "ل",
+        "count": 1,
+        "codepoint": "U+0644"
+    },
+    "ۆ": {
+        "char": "ۆ",
+        "count": 1,
+        "codepoint": "U+06C6"
+    },
+    "ئ": {
+        "char": "ئ",
+        "count": 1,
+        "codepoint": "U+0626"
+    },
+    "ش": {
+        "char": "ش",
+        "count": 1,
+        "codepoint": "U+0634"
+    },
+    "گ": {
+        "char": "گ",
+        "count": 1,
+        "codepoint": "U+06AF"
+    },
+    "ز": {
+        "char": "ز",
+        "count": 1,
+        "codepoint": "U+0632"
+    },
+    "پ": {
+        "char": "پ",
+        "count": 1,
+        "codepoint": "U+067E"
+    },
+    "خ": {
+        "char": "خ",
+        "count": 1,
+        "codepoint": "U+062E"
+    },
+    "ڵ": {
+        "char": "ڵ",
+        "count": 1,
+        "codepoint": "U+06B5"
+    },
+    "ڕ": {
+        "char": "ڕ",
+        "count": 1,
+        "codepoint": "U+0695"
+    },
+    "ژ": {
+        "char": "ژ",
+        "count": 1,
+        "codepoint": "U+0698"
+    },
+    "چ": {
+        "char": "چ",
+        "count": 1,
+        "codepoint": "U+0686"
+    },
+    "ج": {
+        "char": "ج",
+        "count": 1,
+        "codepoint": "U+062C"
+    },
+    "ڤ": {
+        "char": "ڤ",
+        "count": 1,
+        "codepoint": "U+06A4"
+    },
+    "ف": {
+        "char": "ف",
+        "count": 1,
+        "codepoint": "U+0641"
+    },
+    "ق": {
+        "char": "ق",
+        "count": 1,
+        "codepoint": "U+0642"
+    },
+    "ح": {
+        "char": "ح",
+        "count": 1,
+        "codepoint": "U+062D"
+    },
+    "ع": {
+        "char": "ع",
+        "count": 1,
+        "codepoint": "U+0639"
+    },
+    "ھ": {
+        "char": "ھ",
+        "count": 1,
+        "codepoint": "U+06BE"
+    },
+    "غ": {
+        "char": "غ",
+        "count": 1,
+        "codepoint": "U+063A"
+    },
+    "ص": {
+        "char": "ص",
+        "count": 1,
+        "codepoint": "U+0635"
+    },
+    "ط": {
+        "char": "ط",
+        "count": 1,
+        "codepoint": "U+0637"
+    },
+    "ظ": {
+        "char": "ظ",
+        "count": 1,
+        "codepoint": "U+0638"
+    },
+    "ض": {
+        "char": "ض",
+        "count": 1,
+        "codepoint": "U+0636"
+    },
+    "ذ": {
+        "char": "ذ",
+        "count": 1,
+        "codepoint": "U+0630"
+    },
+    "ث": {
+        "char": "ث",
+        "count": 1,
+        "codepoint": "U+062B"
+    },
+    "؛": {
+        "char": "؛",
+        "count": 1,
+        "codepoint": "U+061B"
+    },
+    ".": {
+        "char": ".",
+        "count": 1,
+        "codepoint": "U+002E"
+    },
+    "\\": {
+        "char": "\\",
+        "count": 1,
+        "codepoint": "U+005C"
+    },
+    "/": {
+        "char": "/",
+        "count": 1,
+        "codepoint": "U+002F"
+    },
+    ">": {
+        "char": ">",
+        "count": 1,
+        "codepoint": "U+003E"
+    },
+    "<": {
+        "char": "<",
+        "count": 1,
+        "codepoint": "U+003C"
+    },
+    "(": {
+        "char": "(",
+        "count": 1,
+        "codepoint": "U+0028"
+    },
+    ")": {
+        "char": ")",
+        "count": 1,
+        "codepoint": "U+0029"
+    },
+    "–": {
+        "char": "–",
+        "count": 1,
+        "codepoint": "U+2013"
+    },
+    "«": {
+        "char": "«",
+        "count": 1,
+        "codepoint": "U+00AB"
+    },
+    "»": {
+        "char": "»",
+        "count": 1,
+        "codepoint": "U+00BB"
+    },
+    "%": {
+        "char": "%",
+        "count": 1,
+        "codepoint": "U+0025"
+    },
+    "•": {
+        "char": "•",
+        "count": 1,
+        "codepoint": "U+2022"
+    },
+    ":": {
+        "char": ":",
+        "count": 1,
+        "codepoint": "U+003A"
+    },
+    "،": {
+        "char": "،",
+        "count": 1,
+        "codepoint": "U+060C"
+    },
+    "-": {
+        "char": "-",
+        "count": 1,
+        "codepoint": "U+002D"
+    },
+    "+": {
+        "char": "+",
+        "count": 1,
+        "codepoint": "U+002B"
+    },
+    "=": {
+        "char": "=",
+        "count": 1,
+        "codepoint": "U+003D"
+    },
+    "@": {
+        "char": "@",
+        "count": 1,
+        "codepoint": "U+0040"
+    },
+    "\"": {
+        "char": "\"",
+        "count": 1,
+        "codepoint": "U+0022"
+    },
+    "~": {
+        "char": "~",
+        "count": 1,
+        "codepoint": "U+007E"
+    },
+    "#": {
+        "char": "#",
+        "count": 1,
+        "codepoint": "U+0023"
+    },
+    "؟": {
+        "char": "؟",
+        "count": 1,
+        "codepoint": "U+061F"
+    },
+    "!": {
+        "char": "!",
+        "count": 1,
+        "codepoint": "U+0021"
+    },
+    "ـ": {
+        "char": "ـ",
+        "count": 1,
+        "codepoint": "U+0640"
+    },
+    "'": {
+        "char": "'",
+        "count": 1,
+        "codepoint": "U+0027"
+    },
+    "٠": {
+        "char": "٠",
+        "count": 0,
+        "codepoint": "U+0660"
+    },
+    "١": {
+        "char": "١",
+        "count": 0,
+        "codepoint": "U+0661"
+    },
+    "٢": {
+        "char": "٢",
+        "count": 0,
+        "codepoint": "U+0662"
+    },
+    "٣": {
+        "char": "٣",
+        "count": 0,
+        "codepoint": "U+0663"
+    },
+    "٤": {
+        "char": "٤",
+        "count": 0,
+        "codepoint": "U+0664"
+    },
+    "٥": {
+        "char": "٥",
+        "count": 0,
+        "codepoint": "U+0665"
+    },
+    "٦": {
+        "char": "٦",
+        "count": 0,
+        "codepoint": "U+0666"
+    },
+    "٧": {
+        "char": "٧",
+        "count": 0,
+        "codepoint": "U+0667"
+    },
+    "٨": {
+        "char": "٨",
+        "count": 0,
+        "codepoint": "U+0668"
+    },
+    "٩": {
+        "char": "٩",
+        "count": 0,
+        "codepoint": "U+0669"
+    }
+}

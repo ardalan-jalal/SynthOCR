@@ -1,0 +1,37 @@
+name: Release
+# Publishing a GitHub release uploads the package to PyPI. PyPI trusted
+# publishing authorizes this workflow, so no token is stored in the repository.
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+jobs:
+  pypi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Job permissions replace the defaults, so checkout needs contents: read again.
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: "0.13.5"
+      - name: The release tag matches the package version
+        run: |
+          version=$(uv version --short)
+          test "${GITHUB_REF_NAME#v}" = "$version" || {
+            echo "Tag $GITHUB_REF_NAME does not match version $version in pyproject.toml"
+            exit 1
+          }
+      - name: PyPI accepts every classifier
+        run: |
+          uvx --with trove-classifiers==2025.9.11.17 python -c '
+          import sys, tomllib
+          from trove_classifiers import classifiers
+          bad = [c for c in tomllib.load(open("pyproject.toml", "rb"))["project"]["classifiers"] if c not in classifiers]
+          sys.exit(f"Unknown classifiers: {bad}" if bad else 0)'
+      - run: uv build
+      - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
