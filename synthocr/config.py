@@ -442,7 +442,7 @@ class Config:
     def path(self, value: str) -> Path:
         return (self.root / value).resolve()
 
-    def validate(self) -> Config:
+    def validate(self) -> "Config":
         positive = {
             "max_chars": self.data.max_chars,
             "max_line_chars": self.data.max_line_chars,
