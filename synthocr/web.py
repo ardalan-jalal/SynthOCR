@@ -5,7 +5,6 @@ import hashlib
 import heapq
 import io
 import json
-import ntpath
 import os
 import re
 import shutil
@@ -60,6 +59,10 @@ from .verify import dataset_files, verify
 NAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}\Z")
 LOCATION = re.compile(r"[a-z][a-z0-9-]{0,31}\Z")
 FOLDER_NAME = re.compile(r'[^\x00-\x1f\x7f<>:"/\\|?*]{1,80}\Z')
+WINDOWS_DEVICES = frozenset(
+    {"CON", "PRN", "AUX", "NUL", "CONIN$", "CONOUT$"}
+    | {f"{port}{n}" for port in ("COM", "LPT") for n in "123456789\u00b9\u00b2\u00b3"}
+)
 DIRECTORY_LIMIT = 200
 DIRECTORY_SCAN_LIMIT = 2000
 JOB_ID = re.compile(r"[a-f0-9]{32}\Z")
@@ -96,7 +99,7 @@ def _font_display_name(font) -> str:
     try:
         with TTFont(font.path, fontNumber=font.index, lazy=True) as face:
             name = face["name"].getDebugName(4) or face["name"].getDebugName(1)
-    except OSError, ValueError, KeyError, TTLibError:
+    except (OSError, ValueError, KeyError, TTLibError):
         name = None
     return (name or Path(font.path).stem)[:80]
 
@@ -113,8 +116,14 @@ def _folder_name(name: str) -> bool:
         FOLDER_NAME.fullmatch(name)
         and not name.startswith(".")
         and name[-1] not in " ."
-        and not ntpath.isreserved(name)
+        and not _windows_device(name)
     )
+
+
+def _windows_device(name: str) -> bool:
+    # The device-name rule of ntpath.isreserved, which needs Python 3.13. FOLDER_NAME
+    # and the trailing-character check above cover its other rules.
+    return name.partition(".")[0].rstrip(" ").upper() in WINDOWS_DEVICES
 
 
 def _folder_parts(path: str) -> list[str]:
@@ -606,7 +615,7 @@ class Studio:
                         and (self.dataset(job) / "source-upload.json").is_file()
                     ):
                         self._used_uploads[job["upload"]["id"]] = job["name"]
-                except OSError, ValueError, HTTPException:
+                except (OSError, ValueError, HTTPException):
                     continue
                 if job.get("status") in ACTIVE:
                     job.update(
@@ -774,7 +783,7 @@ class Studio:
                 relative = "/".join(filter(None, (path, entry.name)))
                 try:
                     self.directory(location, relative)
-                except OSError, ValueError, HTTPException:
+                except (OSError, ValueError, HTTPException):
                     continue
                 if len(children) >= DIRECTORY_LIMIT:
                     truncated = True
@@ -2084,7 +2093,7 @@ def create_app(
                         corpora.append({"language": tag, "records": records})
                         if tag not in {"ckb", "kmr", ""}:
                             languages.append({"id": tag, "name": tag, "records": records})
-            except OSError, ValueError, TypeError, KeyError:
+            except (OSError, ValueError, TypeError, KeyError):
                 pass
         return {
             "version": __version__,

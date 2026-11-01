@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "synthocr"
-version = "2.1.0"
+version = "2.2.0"
 description = "OCR training data for Kurdish and other languages: text images with exact labels"
 readme = "README.md"
 license = "MIT OR Apache-2.0"
@@ -17,11 +17,15 @@ classifiers = [
     "Intended Audience :: Developers",
     "Natural Language :: Arabic",
     "Natural Language :: English",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "Topic :: Scientific/Engineering :: Image Recognition",
     "Topic :: Text Processing :: Linguistic",
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = ["pillow>=13.0.0", "fonttools>=4.67.0", "regex>=2026.9.29"]
 
 [project.scripts]
@@ -65,7 +69,7 @@ pillow = { raqm = "enable" }
 testpaths = ["tests"]
 
 [tool.ruff]
-target-version = "py314"
+target-version = "py311"
 line-length = 100
 
 [tool.ruff.lint]

@@ -161,7 +161,7 @@ def prepare(config: Config, force: bool = False) -> dict:
                 )
             ):
                 return stats | {"cached": True}
-        except ValueError, OSError:
+        except (ValueError, OSError):
             pass  # Rebuild corrupt or truncated derived data from unchanged raw sources.
     processed.mkdir(parents=True, exist_ok=True)
     stats = {

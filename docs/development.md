@@ -20,15 +20,18 @@ uv run --extra web synthocr ui --no-browser
 Open the loopback URL printed by the server. The command syntax works in a Unix
 shell or PowerShell; activating a virtual environment is unnecessary. For
 CLI-only use, omit `--extra web`. The repository's `.python-version` selects the
-development interpreter; Python 3.14 remains supported. Keep dependencies in
+development interpreter; Python 3.11 through 3.15 are supported. Keep dependencies in
 `pyproject.toml` and the resolved `uv.lock` together.
 
 Pillow must report RAQM support for multilingual shaping. The project uses
 official wheels where suitable. On macOS with Python 3.15, the pinned Pillow
 source override requires native build libraries; the CI setup installs FreeType,
 HarfBuzz, FriBiDi, libraqm, JPEG, TIFF and WebP libraries. Follow that platform's
-build setup or use the supported Python 3.14 environment. A source build may
-need a compiler as well. Check the installed result with:
+build setup or use a supported Python 3.11–3.14 environment. A source build may
+need a compiler as well. On macOS with Python 3.11–3.14, the Pillow wheel loads
+FriBiDi at runtime: Homebrew's Python finds Homebrew's `libfribidi`, but
+uv-managed interpreters do not, so prefer Homebrew's Python there (for example
+`--python /opt/homebrew/opt/python@3.13/bin/python3.13`). Check the installed result with:
 
 ```sh
 uv run --extra web python -c "from PIL import features; assert features.check_feature('raqm')"
@@ -192,8 +195,8 @@ installation or frontend build step. Only the theme preference is stored in
 browser local storage. Format HTML, CSS and JavaScript with Prettier 3 (four
 spaces, from `.editorconfig`): `npx prettier@3.3.3 --check synthocr/static tests/ui.test.cjs`.
 
-For compatibility, run the same tests with `uv run --isolated --python 3.14
---extra web --group dev pytest`. The isolated environment avoids replacing
+For compatibility, run the same tests with `uv run --isolated --python 3.11
+--extra web --group dev pytest` (the oldest supported version). The isolated environment avoids replacing
 another running contributor/test process's `.venv`. Keep `--extra web` when
 returning to UI work. Do not update a lockfile just because a test command
 omitted the extra.
@@ -311,7 +314,7 @@ Python and Pillow build) before claiming a speed or memory change.
 ## Dependencies and CI
 
 The CLI needs Pillow (with RAQM), fontTools and regex; the `web` extra adds
-FastAPI and Uvicorn. `pip install .` works on Python 3.14+, but on macOS with
+FastAPI and Uvicorn. `pip install .` works on Python 3.11+, but on macOS with
 Python 3.15 use uv, which applies the locked Pillow 13.0.0 source build with
 `raqm=enable` (the wheel does not find Homebrew's FriBiDi). Revisit that
 override when the wheel is fixed. Keep `uv.lock` committed; dependency upgrades

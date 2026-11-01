@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://pypi.org/project/synthocr/"><img alt="PyPI" src="https://img.shields.io/pypi/v/synthocr?color=a99aff"></a>
-  <img alt="Python 3.14+" src="https://img.shields.io/badge/Python-3.14%2B-3776ab?logo=python&amp;logoColor=white">
+  <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776ab?logo=python&amp;logoColor=white">
   <a href="https://github.com/ardalan-jalal/SynthOCR/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/ardalan-jalal/SynthOCR/actions/workflows/ci.yml/badge.svg"></a>
   <a href="#license-and-credits"><img alt="License: MIT OR Apache-2.0" src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-2f9e6e"></a>
 </p>

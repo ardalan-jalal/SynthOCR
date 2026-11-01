@@ -15,7 +15,7 @@ from synthocr.cli import main
 from synthocr.config import Generation, load_config
 from synthocr.downloads import sha256
 from synthocr.fonts import Coverage, Font, _download, check, discover, load_characters
-from synthocr.pipeline import export, generate
+from synthocr.pipeline import _bounded_map, export, generate
 from synthocr.render import Renderer, direction_for
 from synthocr.text import GENRES, GRAPHEME, chunks, generate_text, normalize, prepare
 
@@ -285,3 +285,21 @@ def test_genre_templates_are_reproducible_and_do_not_overwrite(tmp_path):
 def test_cli_errors_have_nonzero_exit_code(config, capsys):
     assert main(["--config", str(config.root / "missing.toml"), "prepare"]) == 1
     assert main(["--config", str(ROOT / "config.toml"), "generate", "--samples", "0"]) == 1
+
+
+def test_bounded_map_keeps_order_and_limits_pending_tasks():
+    from concurrent.futures import ThreadPoolExecutor
+
+    consumed = 0
+
+    def items():
+        nonlocal consumed
+        for item in range(20):
+            consumed += 1
+            yield item
+
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        results = _bounded_map(executor, lambda value: value * value, items(), 3)
+        assert next(results) == 0
+        assert consumed == 4
+        assert list(results) == [value * value for value in range(1, 20)]

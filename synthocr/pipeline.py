@@ -12,6 +12,7 @@ import shutil
 import sqlite3
 import tempfile
 import time
+from collections import deque
 from collections.abc import Callable
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import asdict, replace
@@ -38,6 +39,17 @@ class GenerationCancelled(ValueError):
 def _check_cancel(cancel):
     if cancel is not None and cancel():
         raise GenerationCancelled("Generation cancelled; partial output has been retained")
+
+
+def _bounded_map(executor, function, items, limit):
+    # Executor.map(buffersize=...) needs Python 3.14; keep at most `limit` tasks pending.
+    pending = deque()
+    for item in items:
+        if len(pending) == limit:
+            yield pending.popleft().result()
+        pending.append(executor.submit(function, item))
+    while pending:
+        yield pending.popleft().result()
 
 
 def _font_name(config, face):
@@ -314,9 +326,7 @@ def _generate(config: Config, *, progress=None, cancel=None) -> dict:
                 initializer=initialize,
                 initargs=(config.generation, config.fonts.cache_size),
             )
-            results = executor.map(
-                render_task, tasks, chunksize=1, buffersize=2 * config.generation.workers
-            )
+            results = _bounded_map(executor, render_task, tasks, 2 * config.generation.workers)
         with (
             (output / "manifest.jsonl").open("w", encoding="utf-8") as manifest,
             (output / "origins.jsonl").open("w", encoding="utf-8") as origins,

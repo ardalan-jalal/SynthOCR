@@ -4,7 +4,7 @@ Build a small, model-neutral text-image generator. Keep new behavior in the
 `synthocr` package and expose reusable operations through its CLI.
 
 - Use `uv sync --locked` and `uv run`. Python is pinned in `.python-version`;
-  keep Python 3.14 compatibility. Edit dependencies in `pyproject.toml` and update
+  keep Python 3.11+ compatibility. Edit dependencies in `pyproject.toml` and update
   `uv.lock` together. Keep runtime dependencies small.
 - Raw data in `data/raw/` is the source of truth. Never rewrite raw corpora as
   part of normalization. Processed data and images are reproducible outputs.
