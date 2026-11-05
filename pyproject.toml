@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "synthocr"
-version = "2.2.0"
+version = "2.3.0"
 description = "OCR training data for Kurdish and other languages: text images with exact labels"
 readme = "README.md"
 license = "MIT OR Apache-2.0"

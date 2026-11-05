@@ -4,7 +4,7 @@ requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.15' and sys_platform == 'darwin'",
     "python_full_version >= '3.12' and sys_platform == 'emscripten'",
-    "python_full_version < '3.12' or (python_full_version >= '3.12' and python_full_version < '3.15' and sys_platform == 'darwin') or (sys_platform != 'darwin' and sys_platform != 'emscripten')",
+    "(python_full_version < '3.15' and sys_platform == 'darwin') or (python_full_version < '3.12' and sys_platform == 'emscripten') or (sys_platform != 'darwin' and sys_platform != 'emscripten')",
 ]
 
 [[package]]
@@ -585,7 +585,7 @@ version = "13.0.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version >= '3.12' and sys_platform == 'emscripten'",
-    "python_full_version < '3.12' or (python_full_version >= '3.12' and python_full_version < '3.15' and sys_platform == 'darwin') or (sys_platform != 'darwin' and sys_platform != 'emscripten')",
+    "(python_full_version < '3.15' and sys_platform == 'darwin') or (python_full_version < '3.12' and sys_platform == 'emscripten') or (sys_platform != 'darwin' and sys_platform != 'emscripten')",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ce/a4/9cc30690a394a8305e8be4c9036aa16d0dfddadd09079860b582f562496d/pillow-13.0.0.tar.gz", hash = "sha256:cdcd1ba258178f7356d74170c9a81ba4eab6a5d55748bc402a5a2a6fe6be3510", size = 47058631, upload-time = "2026-10-16T22:18:09.718Z" }
 wheels = [
@@ -1177,7 +1177,7 @@ wheels = [
 
 [[package]]
 name = "synthocr"
-version = "2.2.0"
+version = "2.3.0"
 source = { editable = "." }
 default-groups = []
 dependencies = [
